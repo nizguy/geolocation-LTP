@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Geolocation Lesson 1</title>
+		<script>
+			window.onload = function()
+			{
+				if (navigator.geolocation)
+				{
+					navigator.geolocation.getCurrentPosition(showPosition, badConnect);
+				} else
+				{
+					alert("Geolocation not available");
+				}
+			}
+			function showPosition(position)
+			{
+				var lat = position.coords.latitude;
+				var long = position.coords.longitude;
+				document.getElementById('lat').innerHTML = lat;
+				document.getElementById('long').innerHTML = long;
+			}
+			function badConnect(e)
+			{
+				alert(e);
+			}
+		</script>
+	 
+	</head>
+	<body>
+		<span id="lat"></span><span id="long"></span>
+	</body>
+	
+	
+</html>
